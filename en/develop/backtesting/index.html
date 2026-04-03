@@ -2001,7 +2001,8 @@
 <p>Backtesting requires historic data to be available.
 To learn how to get data for the pairs and exchange you're interested in, head over to the <a href="../data-download/">Data Downloading</a> section of the documentation.</p>
 <h2 id="backtesting-command-reference">Backtesting command reference<a class="headerlink" href="#backtesting-command-reference" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade backtesting [-h] [-v] [--no-color] [--logfile FILE] [-V]
+<p>```
+usage: freqtrade backtesting [-h] [-v] [--no-color] [--logfile FILE] [-V]
                              [-c PATH] [-d PATH] [--userdir PATH] [-s NAME]
                              [--strategy-path PATH]
                              [--recursive-strategy-search]
@@ -2019,22 +2020,21 @@ To learn how to get data for the pairs and exchange you're interested in, head o
                              [--export-filename PATH]
                              [--breakdown {day,week,month,year} [{day,week,month,year} ...]]
                              [--cache {none,day,week,month}]
-                             [--freqai-backtest-live-models]
-
-options:
+                             [--freqai-backtest-live-models]</p>
+<p>options:
   -h, --help            show this help message and exit
   -i TIMEFRAME, --timeframe TIMEFRAME
-                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
+                        Specify timeframe (<code>1m</code>, <code>5m</code>, <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
   --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
-                        (default: `feather`).
+                        (default: <code>feather</code>).
   --max-open-trades INT
-                        Override the value of the `max_open_trades`
+                        Override the value of the <code>max_open_trades</code>
                         configuration setting.
   --stake-amount STAKE_AMOUNT
-                        Override the value of the `stake_amount` configuration
+                        Override the value of the <code>stake_amount</code> configuration
                         setting.
   --fee FLOAT           Specify fee ratio. Will be applied twice (on trade
                         entry and exit).
@@ -2052,21 +2052,21 @@ options:
                         Starting balance, used for backtesting / hyperopt and
                         dry-runs.
   --timeframe-detail TIMEFRAME_DETAIL
-                        Specify detail timeframe for backtesting (`1m`, `5m`,
-                        `30m`, `1h`, `1d`).
+                        Specify detail timeframe for backtesting (<code>1m</code>, <code>5m</code>,
+                        <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --strategy-list STRATEGY_LIST [STRATEGY_LIST ...]
                         Provide a space-separated list of strategies to
                         backtest. Please note that timeframe needs to be set
                         either in config or via command line. When using this
-                        together with `--export trades`, the strategy-name is
-                        injected into the filename (so `backtest-data.json`
-                        becomes `backtest-data-SampleStrategy.json`
+                        together with <code>--export trades</code>, the strategy-name is
+                        injected into the filename (so <code>backtest-data.json</code>
+                        becomes <code>backtest-data-SampleStrategy.json</code>
   --export {none,trades,signals}
                         Export backtest results (default: trades).
   --export-filename PATH, --backtest-filename PATH
                         Use this filename for backtest results.Requires
-                        `--export` to be set as well. Example: `--export-filen
-                        ame=user_data/backtest_results/backtest_today.json`
+                        <code>--export</code> to be set as well. Example: <code>--export-filen
+                        ame=user_data/backtest_results/backtest_today.json</code>
   --breakdown {day,week,month,year} [{day,week,month,year} ...]
                         Show backtesting breakdown per [day, week, month,
                         year].
@@ -2074,28 +2074,26 @@ options:
                         Load a cached backtest result no older than specified
                         age (default: day).
   --freqai-backtest-live-models
-                        Run backtest with ready models.
-
-Common arguments:
+                        Run backtest with ready models.</p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-
-Strategy arguments:
+                        Path to userdata directory.</p>
+<p>Strategy arguments:
   -s NAME, --strategy NAME
                         Specify strategy class name which will be used by the
                         bot.
@@ -2105,8 +2103,8 @@ Strategy arguments:
                         folder.
   --freqaimodel NAME    Specify a custom freqaimodels.
   --freqaimodel-path PATH
-                        Specify additional lookup path for freqaimodels.
-</code></pre></div>
+                        Specify additional lookup path for freqaimodels.</p>
+<p>```</p>
 <h2 id="test-your-strategy-with-backtesting">Test your strategy with Backtesting<a class="headerlink" href="#test-your-strategy-with-backtesting" title="Permanent link">&para;</a></h2>
 <p>Now you have good Entry and exit strategies and some historic data, you want to test it against
 real data. This is what we call <a href="https://en.wikipedia.org/wiki/Backtesting">backtesting</a>.</p>
@@ -2135,37 +2133,37 @@ This amount must be higher than <code>stake_amount</code>, otherwise the bot wil
 Profits from early trades will result in subsequent higher stake amounts, resulting in compounding of profits over the backtesting period.</p>
 <h3 id="example-backtesting-commands">Example backtesting commands<a class="headerlink" href="#example-backtesting-commands" title="Permanent link">&para;</a></h3>
 <p>With 5 min candle (OHLCV) data (per default)</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy AwesomeStrategy</code></p>
 <p>Where <code>--strategy AwesomeStrategy</code> / <code>-s AwesomeStrategy</code> refers to the class name of the strategy, which is within a python file in the <code>user_data/strategies</code> directory.</p>
 <hr />
 <p>With 1 min candle (OHLCV) data</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy<span class="w"> </span>--timeframe<span class="w"> </span>1m
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy AwesomeStrategy --timeframe 1m</code></p>
 <hr />
 <p>Providing a custom starting balance of 1000 (in stake currency)</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy<span class="w"> </span>--dry-run-wallet<span class="w"> </span><span class="m">1000</span>
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy AwesomeStrategy --dry-run-wallet 1000</code></p>
 <hr />
 <p>Using a different on-disk historical candle (OHLCV) data source</p>
 <p>Assume you downloaded the history data from the Binance exchange and kept it in the <code>user_data/data/binance-20180101</code> directory. 
 You can then use this data for backtesting as follows:</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy<span class="w"> </span>--datadir<span class="w"> </span>user_data/data/binance-20180101<span class="w"> </span>
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy AwesomeStrategy --datadir user_data/data/binance-20180101</code></p>
 <hr />
 <p>Comparing multiple Strategies</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy-list<span class="w"> </span>SampleStrategy1<span class="w"> </span>AwesomeStrategy<span class="w"> </span>--timeframe<span class="w"> </span>5m
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy-list SampleStrategy1 AwesomeStrategy --timeframe 5m</code></p>
 <p>Where <code>SampleStrategy1</code> and <code>AwesomeStrategy</code> refer to class names of strategies.</p>
 <hr />
 <p>Prevent exporting trades to file</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>backtesting<span class="w"> </span>--export<span class="w"> </span>none<span class="w"> </span>--config<span class="w"> </span>config.json<span class="w"> </span>
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy backtesting --export none --config config.json</code></p>
 <p>Only use this if you're sure you'll not want to plot or analyze your results further.</p>
 <hr />
 <p>Exporting trades to file specifying a custom filename</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>backtesting<span class="w"> </span>--export<span class="w"> </span>trades<span class="w"> </span>--export-filename<span class="o">=</span>backtest_samplestrategy.json
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy backtesting --export trades --export-filename=backtest_samplestrategy.json</code></p>
 <p>Please also read about the <a href="../strategy-customization/#strategy-startup-period">strategy startup period</a>.</p>
 <hr />
 <p>Supplying custom fee value</p>
@@ -2173,8 +2171,8 @@ You can then use this data for backtesting as follows:</p>
 To account for this in backtesting, you can use the <code>--fee</code> command line option to supply this value to backtesting.
 This fee must be a ratio, and will be applied twice (once for trade entry, and once for trade exit).</p>
 <p>For example, if the commission fee per order is 0.1% (i.e., 0.001 written as ratio), then you would run backtesting as the following:</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--fee<span class="w"> </span><span class="m">0</span>.001
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --fee 0.001</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Only supply this option (or the corresponding configuration parameter) if you want to experiment with different fee values. By default, Backtesting fetches the default fee from the exchange pair/market info.</p>
@@ -2183,8 +2181,8 @@ This fee must be a ratio, and will be applied twice (once for trade entry, and o
 <p>Running backtest with smaller test-set by using timerange</p>
 <p>Use the <code>--timerange</code> argument to change how much of the test-set you want to use.</p>
 <p>For example, running backtesting with the <code>--timerange=20190501-</code> option will use all available data starting with May 1<sup>st</sup>, 2019 from your input data.</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--timerange<span class="o">=</span><span class="m">20190501</span>-
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --timerange=20190501-</code></p>
 <p>You can also specify particular date ranges.</p>
 <p>The full timerange specification:</p>
 <ul>
@@ -2196,7 +2194,8 @@ This fee must be a ratio, and will be applied twice (once for trade entry, and o
 <h2 id="understand-the-backtesting-result">Understand the backtesting result<a class="headerlink" href="#understand-the-backtesting-result" title="Permanent link">&para;</a></h2>
 <p>The most important in the backtesting is to understand the result.</p>
 <p>A backtesting result will look like that:</p>
-<div class="highlight"><pre><span></span><code>================================================ BACKTESTING REPORT =================================================
+<p>```
+================================================ BACKTESTING REPORT =================================================
 | Pair     | Trades |   Avg Profit % |   Tot Profit BTC |   Tot Profit % | Avg Duration |  Wins Draws Loss   Win%  |
 |----------+--------+----------------+------------------+----------------+--------------+--------------------------|
 | ADA/BTC  |     35 |          -0.11 |      -0.00019428 |          -1.94 | 4:35:00      |    14     0    21   40.0 |
@@ -2230,8 +2229,94 @@ This fee must be a ratio, and will be applied twice (once for trade entry, and o
 | trailing_stop_loss |     205 |   150 |      0 |      55 |
 | stop_loss          |     166 |     0 |      0 |     166 |
 | exit_signal        |      56 |    36 |      0 |      20 |
-| force_exit         |       2 |     0 |      0 |       2 |
-
+| force_exit         |       2 |     0 |      0 |       2 |</p>
+<p>================== SUMMARY METRICS ==================
+| Metric                      | Value               |
+|-----------------------------+---------------------|
+| Backtesting from            | 2019-01-01 00:00:00 |
+| Backtesting to              | 2019-05-01 00:00:00 |
+| Trading Mode                | Spot                |
+| Max open trades             | 3                   |
+|                             |                     |
+| Total/Daily Avg Trades      | 429 / 3.575         |
+| Starting balance            | 0.01000000 BTC      |
+| Final balance               | 0.01762792 BTC      |
+| Absolute profit             | 0.00762792 BTC      |
+| Total profit %              | 76.2%               |
+| CAGR %                      | 460.87%             |
+| Sortino                     | 1.88                |
+| Sharpe                      | 2.97                |
+| Calmar                      | 6.29                |
+| SQN                         | 2.45                |
+| Profit factor               | 1.11                |
+| Expectancy (Ratio)          | -0.15 (-0.05)       |
+| Avg. stake amount           | 0.001      BTC      |
+| Total trade volume          | 0.429      BTC      |
+|                             |                     |
+| Long / Short                | 352 / 77            |
+| Total profit Long %         | 1250.58%            |
+| Total profit Short %        | -15.02%             |
+| Absolute profit Long        | 0.00838792 BTC      |
+| Absolute profit Short       | -0.00076 BTC        |
+|                             |                     |
+| Best Pair                   | LSK/BTC 26.26%      |
+| Worst Pair                  | ZEC/BTC -10.18%     |
+| Best Trade                  | LSK/BTC 4.25%       |
+| Worst Trade                 | ZEC/BTC -10.25%     |
+| Best day                    | 0.00076 BTC         |
+| Worst day                   | -0.00036 BTC        |
+| Days win/draw/lose          | 12 / 82 / 25        |
+| Avg. Duration Winners       | 4:23:00             |
+| Avg. Duration Loser         | 6:55:00             |
+| Max Consecutive Wins / Loss | 3 / 4               |
+| Rejected Entry signals      | 3089                |
+| Entry/Exit Timeouts         | 0 / 0               |
+| Canceled Trade Entries      | 34                  |
+| Canceled Entry Orders       | 123                 |
+| Replaced Entry Orders       | 89                  |
+|                             |                     |
+| Min balance                 | 0.00945123 BTC      |
+| Max balance                 | 0.01846651 BTC      |
+| Max % of account underwater | 25.19%              |
+| Absolute Drawdown (Account) | 13.33%              |
+| Drawdown                    | 0.0015 BTC          |
+| Drawdown high               | 0.0013 BTC          |
+| Drawdown low                | -0.0002 BTC         |
+| Drawdown Start              | 2019-02-15 14:10:00 |
+| Drawdown End                | 2019-04-11 18:15:00 |
+| Market change               | -5.88%              |
+=====================================================
+```</p>
+<h3 id="backtesting-report-table">Backtesting report table<a class="headerlink" href="#backtesting-report-table" title="Permanent link">&para;</a></h3>
+<p>The 1<sup>st</sup> table contains all trades the bot made, including "left open trades".</p>
+<p>The last line will give you the overall performance of your strategy,
+here:</p>
+<p><code>| TOTAL    |    429 |           0.36 |         152.41 |       0.00762792 |          76.20 | 4:12:00      |   186     0   243   43.4 |</code></p>
+<p>The bot has made <code>429</code> trades for an average duration of <code>4:12:00</code>, with a performance of <code>76.20%</code> (profit), that means it has
+earned a total of <code>0.00762792 BTC</code> starting with a capital of 0.01 BTC.</p>
+<p>The column <code>Avg Profit %</code> shows the average profit for all trades made.
+The column <code>Tot Profit %</code> shows instead the total profit % in relation to the starting balance.
+In the above results, we have a starting balance of 0.01 BTC and an absolute profit of 0.00762792 BTC - so the <code>Tot Profit %</code> will be <code>(0.00762792 / 0.01) * 100 ~= 76.2%</code>.</p>
+<p>Your strategy performance is influenced by your entry strategy, your exit strategy, and also by the <code>minimal_roi</code> and <code>stop_loss</code> you have set.</p>
+<p>For example, if your <code>minimal_roi</code> is only <code>"0":  0.01</code> you cannot expect the bot to make more profit than 1% (because it will exit every time a trade reaches 1%).</p>
+<p><code>json
+"minimal_roi": {
+    "0":  0.01
+},</code></p>
+<p>On the other hand, if you set a too high <code>minimal_roi</code> like <code>"0":  0.55</code>
+(55%), there is almost no chance that the bot will ever reach this profit.
+Hence, keep in mind that your performance is an integral mix of all different elements of the strategy, your configuration, and the crypto-currency pairs you have set up.</p>
+<h3 id="exit-reasons-table">Exit reasons table<a class="headerlink" href="#exit-reasons-table" title="Permanent link">&para;</a></h3>
+<p>The 2<sup>nd</sup> table contains a recap of exit reasons.
+This table can tell you which area needs some additional work (e.g. all or many of the <code>exit_signal</code> trades are losses, so you should work on improving the exit signal, or consider disabling it).</p>
+<h3 id="left-open-trades-table">Left open trades table<a class="headerlink" href="#left-open-trades-table" title="Permanent link">&para;</a></h3>
+<p>The 3<sup>rd</sup> table contains all trades the bot had to <code>force_exit</code> at the end of the backtesting period to present you the full picture.
+This is necessary to simulate realistic behavior, since the backtest period has to end at some point, while realistically, you could leave the bot running forever.
+These trades are also included in the first table, but are also shown separately in this table for clarity.</p>
+<h3 id="summary-metrics">Summary metrics<a class="headerlink" href="#summary-metrics" title="Permanent link">&para;</a></h3>
+<p>The last element of the backtest report is the summary metrics table.
+It contains some useful key metrics about performance of your strategy on backtesting data.</p>
+<p>```
 ================== SUMMARY METRICS ==================
 | Metric                      | Value               |
 |-----------------------------+---------------------|
@@ -2287,95 +2372,8 @@ This fee must be a ratio, and will be applied twice (once for trade entry, and o
 | Drawdown Start              | 2019-02-15 14:10:00 |
 | Drawdown End                | 2019-04-11 18:15:00 |
 | Market change               | -5.88%              |
-=====================================================
-</code></pre></div>
-<h3 id="backtesting-report-table">Backtesting report table<a class="headerlink" href="#backtesting-report-table" title="Permanent link">&para;</a></h3>
-<p>The 1<sup>st</sup> table contains all trades the bot made, including "left open trades".</p>
-<p>The last line will give you the overall performance of your strategy,
-here:</p>
-<div class="highlight"><pre><span></span><code>| TOTAL    |    429 |           0.36 |         152.41 |       0.00762792 |          76.20 | 4:12:00      |   186     0   243   43.4 |
-</code></pre></div>
-<p>The bot has made <code>429</code> trades for an average duration of <code>4:12:00</code>, with a performance of <code>76.20%</code> (profit), that means it has
-earned a total of <code>0.00762792 BTC</code> starting with a capital of 0.01 BTC.</p>
-<p>The column <code>Avg Profit %</code> shows the average profit for all trades made.
-The column <code>Tot Profit %</code> shows instead the total profit % in relation to the starting balance.
-In the above results, we have a starting balance of 0.01 BTC and an absolute profit of 0.00762792 BTC - so the <code>Tot Profit %</code> will be <code>(0.00762792 / 0.01) * 100 ~= 76.2%</code>.</p>
-<p>Your strategy performance is influenced by your entry strategy, your exit strategy, and also by the <code>minimal_roi</code> and <code>stop_loss</code> you have set.</p>
-<p>For example, if your <code>minimal_roi</code> is only <code>"0":  0.01</code> you cannot expect the bot to make more profit than 1% (because it will exit every time a trade reaches 1%).</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;minimal_roi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;0&quot;</span><span class="p">:</span><span class="w">  </span><span class="mf">0.01</span>
-<span class="p">},</span>
-</code></pre></div>
-<p>On the other hand, if you set a too high <code>minimal_roi</code> like <code>"0":  0.55</code>
-(55%), there is almost no chance that the bot will ever reach this profit.
-Hence, keep in mind that your performance is an integral mix of all different elements of the strategy, your configuration, and the crypto-currency pairs you have set up.</p>
-<h3 id="exit-reasons-table">Exit reasons table<a class="headerlink" href="#exit-reasons-table" title="Permanent link">&para;</a></h3>
-<p>The 2<sup>nd</sup> table contains a recap of exit reasons.
-This table can tell you which area needs some additional work (e.g. all or many of the <code>exit_signal</code> trades are losses, so you should work on improving the exit signal, or consider disabling it).</p>
-<h3 id="left-open-trades-table">Left open trades table<a class="headerlink" href="#left-open-trades-table" title="Permanent link">&para;</a></h3>
-<p>The 3<sup>rd</sup> table contains all trades the bot had to <code>force_exit</code> at the end of the backtesting period to present you the full picture.
-This is necessary to simulate realistic behavior, since the backtest period has to end at some point, while realistically, you could leave the bot running forever.
-These trades are also included in the first table, but are also shown separately in this table for clarity.</p>
-<h3 id="summary-metrics">Summary metrics<a class="headerlink" href="#summary-metrics" title="Permanent link">&para;</a></h3>
-<p>The last element of the backtest report is the summary metrics table.
-It contains some useful key metrics about performance of your strategy on backtesting data.</p>
-<div class="highlight"><pre><span></span><code>================== SUMMARY METRICS ==================
-| Metric                      | Value               |
-|-----------------------------+---------------------|
-| Backtesting from            | 2019-01-01 00:00:00 |
-| Backtesting to              | 2019-05-01 00:00:00 |
-| Trading Mode                | Spot                |
-| Max open trades             | 3                   |
-|                             |                     |
-| Total/Daily Avg Trades      | 429 / 3.575         |
-| Starting balance            | 0.01000000 BTC      |
-| Final balance               | 0.01762792 BTC      |
-| Absolute profit             | 0.00762792 BTC      |
-| Total profit %              | 76.2%               |
-| CAGR %                      | 460.87%             |
-| Sortino                     | 1.88                |
-| Sharpe                      | 2.97                |
-| Calmar                      | 6.29                |
-| SQN                         | 2.45                |
-| Profit factor               | 1.11                |
-| Expectancy (Ratio)          | -0.15 (-0.05)       |
-| Avg. stake amount           | 0.001      BTC      |
-| Total trade volume          | 0.429      BTC      |
-|                             |                     |
-| Long / Short                | 352 / 77            |
-| Total profit Long %         | 1250.58%            |
-| Total profit Short %        | -15.02%             |
-| Absolute profit Long        | 0.00838792 BTC      |
-| Absolute profit Short       | -0.00076 BTC        |
-|                             |                     |
-| Best Pair                   | LSK/BTC 26.26%      |
-| Worst Pair                  | ZEC/BTC -10.18%     |
-| Best Trade                  | LSK/BTC 4.25%       |
-| Worst Trade                 | ZEC/BTC -10.25%     |
-| Best day                    | 0.00076 BTC         |
-| Worst day                   | -0.00036 BTC        |
-| Days win/draw/lose          | 12 / 82 / 25        |
-| Avg. Duration Winners       | 4:23:00             |
-| Avg. Duration Loser         | 6:55:00             |
-| Max Consecutive Wins / Loss | 3 / 4               |
-| Rejected Entry signals      | 3089                |
-| Entry/Exit Timeouts         | 0 / 0               |
-| Canceled Trade Entries      | 34                  |
-| Canceled Entry Orders       | 123                 |
-| Replaced Entry Orders       | 89                  |
-|                             |                     |
-| Min balance                 | 0.00945123 BTC      |
-| Max balance                 | 0.01846651 BTC      |
-| Max % of account underwater | 25.19%              |
-| Absolute Drawdown (Account) | 13.33%              |
-| Drawdown                    | 0.0015 BTC          |
-| Drawdown high               | 0.0013 BTC          |
-| Drawdown low                | -0.0002 BTC         |
-| Drawdown Start              | 2019-02-15 14:10:00 |
-| Drawdown End                | 2019-04-11 18:15:00 |
-| Market change               | -5.88%              |
-=====================================================
-</code></pre></div>
+=====================================================</p>
+<p>```</p>
 <ul>
 <li><code>Backtesting from</code> / <code>Backtesting to</code>: Backtesting range (usually defined with the <code>--timerange</code> option).</li>
 <li><code>Max open trades</code>: Setting of <code>max_open_trades</code> (or <code>--max-open-trades</code>) - or number of pairs in the pairlist (whatever is lower).</li>
@@ -2419,18 +2417,19 @@ Calculated as the maximum of <code>(Max Balance - Current Balance) / (Max Balanc
 <h3 id="daily-weekly-monthly-breakdown">Daily / Weekly / Monthly breakdown<a class="headerlink" href="#daily-weekly-monthly-breakdown" title="Permanent link">&para;</a></h3>
 <p>You can get an overview over daily / weekly or monthly results by using the <code>--breakdown &lt;&gt;</code> switch.</p>
 <p>To visualize daily and weekly breakdowns, you can use the following:</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>MyAwesomeStrategy<span class="w"> </span>--breakdown<span class="w"> </span>day<span class="w"> </span>week
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="go">======================== DAY BREAKDOWN =========================</span>
-<span class="go">|        Day |   Tot Profit USDT |   Wins |   Draws |   Losses |</span>
-<span class="go">|------------+-------------------+--------+---------+----------|</span>
-<span class="go">| 03/07/2021 |           200.0   |      2 |       0 |        0 |</span>
-<span class="go">| 04/07/2021 |           -50.31  |      0 |       0 |        2 |</span>
-<span class="go">| 05/07/2021 |           220.611 |      3 |       2 |        0 |</span>
-<span class="go">| 06/07/2021 |           150.974 |      3 |       0 |        2 |</span>
-<span class="go">| 07/07/2021 |           -70.193 |      1 |       0 |        2 |</span>
-<span class="go">| 08/07/2021 |           212.413 |      2 |       0 |        3 |</span>
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy MyAwesomeStrategy --breakdown day week</code></p>
+<p>``` output
+======================== DAY BREAKDOWN =========================
+|        Day |   Tot Profit USDT |   Wins |   Draws |   Losses |
+|------------+-------------------+--------+---------+----------|
+| 03/07/2021 |           200.0   |      2 |       0 |        0 |
+| 04/07/2021 |           -50.31  |      0 |       0 |        2 |
+| 05/07/2021 |           220.611 |      3 |       2 |        0 |
+| 06/07/2021 |           150.974 |      3 |       0 |        2 |
+| 07/07/2021 |           -70.193 |      1 |       0 |        2 |
+| 08/07/2021 |           212.413 |      2 |       0 |        3 |</p>
+<p>```</p>
 <p>The output will show a table containing the realized absolute Profit (in stake currency) for the given timeperiod, as well as wins, draws and losses that materialized (closed) on this day. Below that there will be a second table for the summarized values of weeks indicated by the date of the closing Sunday. The same would apply to a monthly breakdown indicated by the last day of the month.</p>
 <h3 id="backtest-result-caching">Backtest result caching<a class="headerlink" href="#backtest-result-caching" title="Permanent link">&para;</a></h3>
 <p>To save time, by default backtest will reuse a cached result from within the last day when the backtested strategy and config match that of a previous backtest. To force a new backtest despite existing result for an identical run specify <code>--cache none</code> parameter.</p>
@@ -2504,8 +2503,8 @@ So assuming you run backtesting with a 1h timeframe, there will be 4 prices for 
 <p>While backtesting does take some assumptions (read above) about this - this can never be perfect, and will always be biased in one way or the other.
 To mitigate this, freqtrade can use a lower (faster) timeframe to simulate intra-candle movements.</p>
 <p>To utilize this, you can append <code>--timeframe-detail 5m</code> to your regular backtesting command.</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--strategy<span class="w"> </span>AwesomeStrategy<span class="w"> </span>--timeframe<span class="w"> </span>1h<span class="w"> </span>--timeframe-detail<span class="w"> </span>5m
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --strategy AwesomeStrategy --timeframe 1h --timeframe-detail 5m</code></p>
 <p>This will load 1h data (the main timeframe) as well as 5m data (detail timeframe) for the selected timerange.
 The strategy will be analyzed with the 1h timeframe.
 Candles where activity may take place (there's an active signal, the pair is in a trade) are  evaluated at the 5m timeframe.
@@ -2596,17 +2595,16 @@ Also, data must be available / downloaded already.</p>
 <p>This is limited to 1 timeframe value per run. However, data is only loaded once from disk so if you have multiple
 strategies you'd like to compare, this will give a nice runtime boost.</p>
 <p>All listed Strategies need to be in the same directory, unless also <code>--recursive-strategy-search</code> is specified, where sub-directories within the strategy directory are also considered.</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>backtesting<span class="w"> </span>--timerange<span class="w"> </span><span class="m">20180401</span>-20180410<span class="w"> </span>--timeframe<span class="w"> </span>5m<span class="w"> </span>--strategy-list<span class="w"> </span>Strategy001<span class="w"> </span>Strategy002<span class="w"> </span>--export<span class="w"> </span>trades
-</code></pre></div>
+<p><code>bash
+freqtrade backtesting --timerange 20180401-20180410 --timeframe 5m --strategy-list Strategy001 Strategy002 --export trades</code></p>
 <p>This will save the results to <code>user_data/backtest_results/backtest-result-&lt;datetime&gt;.json</code>, including results for both <code>Strategy001</code> and <code>Strategy002</code>.
 There will be an additional table comparing win/losses of the different strategies (identical to the "Total" row in the first table).
 Detailed output for all strategies one after the other will be available, so make sure to scroll up to see the details per strategy.</p>
-<div class="highlight"><pre><span></span><code>================================================== STRATEGY SUMMARY ===================================================================
+<p><code>================================================== STRATEGY SUMMARY ===================================================================
 | Strategy    |  Trades |   Avg Profit % |   Tot Profit BTC |   Tot Profit % | Avg Duration   |  Wins |  Draws | Losses | Drawdown % |
 |-------------+---------+----------------+------------------+----------------+----------------+-------+--------+--------+------------|
 | Strategy1   |     429 |           0.36 |       0.00762792 |          76.20 | 4:12:00        |   186 |      0 |    243 |       45.2 |
-| Strategy2   |    1487 |          -0.13 |      -0.00988917 |         -98.79 | 4:43:00        |   662 |      0 |    825 |     241.68 |
-</code></pre></div>
+| Strategy2   |    1487 |          -0.13 |      -0.00988917 |         -98.79 | 4:43:00        |   662 |      0 |    825 |     241.68 |</code></p>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">&para;</a></h2>
 <p>Great, your strategy is profitable. What if the bot can give your the optimal parameters to use for your strategy?
 Your next step is to learn <a href="../hyperopt/">how to find optimal parameters with Hyperopt</a></p>

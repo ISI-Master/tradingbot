@@ -1733,7 +1733,8 @@ It also supports the lookahead-analysis of freqai strategies.</p>
 </ul>
 <p>Those are set to avoid users accidentally generating false positives.</p>
 <h2 id="lookahead-analysis-command-reference">Lookahead-analysis command reference<a class="headerlink" href="#lookahead-analysis-command-reference" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade lookahead-analysis [-h] [-v] [--no-color] [--logfile FILE]
+<p>```
+usage: freqtrade lookahead-analysis [-h] [-v] [--no-color] [--logfile FILE]
                                     [-V] [-c PATH] [-d PATH] [--userdir PATH]
                                     [-s NAME] [--strategy-path PATH]
                                     [--recursive-strategy-search]
@@ -1753,22 +1754,21 @@ It also supports the lookahead-analysis of freqai strategies.</p>
                                     [--freqai-backtest-live-models]
                                     [--minimum-trade-amount INT]
                                     [--targeted-trade-amount INT]
-                                    [--lookahead-analysis-exportfilename LOOKAHEAD_ANALYSIS_EXPORTFILENAME]
-
-options:
+                                    [--lookahead-analysis-exportfilename LOOKAHEAD_ANALYSIS_EXPORTFILENAME]</p>
+<p>options:
   -h, --help            show this help message and exit
   -i TIMEFRAME, --timeframe TIMEFRAME
-                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
+                        Specify timeframe (<code>1m</code>, <code>5m</code>, <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
   --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
-                        (default: `feather`).
+                        (default: <code>feather</code>).
   --max-open-trades INT
-                        Override the value of the `max_open_trades`
+                        Override the value of the <code>max_open_trades</code>
                         configuration setting.
   --stake-amount STAKE_AMOUNT
-                        Override the value of the `stake_amount` configuration
+                        Override the value of the <code>stake_amount</code> configuration
                         setting.
   --fee FLOAT           Specify fee ratio. Will be applied twice (on trade
                         entry and exit).
@@ -1783,21 +1783,21 @@ options:
                         Starting balance, used for backtesting / hyperopt and
                         dry-runs.
   --timeframe-detail TIMEFRAME_DETAIL
-                        Specify detail timeframe for backtesting (`1m`, `5m`,
-                        `30m`, `1h`, `1d`).
+                        Specify detail timeframe for backtesting (<code>1m</code>, <code>5m</code>,
+                        <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --strategy-list STRATEGY_LIST [STRATEGY_LIST ...]
                         Provide a space-separated list of strategies to
                         backtest. Please note that timeframe needs to be set
                         either in config or via command line. When using this
-                        together with `--export trades`, the strategy-name is
-                        injected into the filename (so `backtest-data.json`
-                        becomes `backtest-data-SampleStrategy.json`
+                        together with <code>--export trades</code>, the strategy-name is
+                        injected into the filename (so <code>backtest-data.json</code>
+                        becomes <code>backtest-data-SampleStrategy.json</code>
   --export {none,trades,signals}
                         Export backtest results (default: trades).
   --export-filename PATH, --backtest-filename PATH
                         Use this filename for backtest results.Requires
-                        `--export` to be set as well. Example: `--export-filen
-                        ame=user_data/backtest_results/backtest_today.json`
+                        <code>--export</code> to be set as well. Example: <code>--export-filen
+                        ame=user_data/backtest_results/backtest_today.json</code>
   --freqai-backtest-live-models
                         Run backtest with ready models.
   --minimum-trade-amount INT
@@ -1806,28 +1806,26 @@ options:
                         Targeted trade amount for lookahead analysis
   --lookahead-analysis-exportfilename LOOKAHEAD_ANALYSIS_EXPORTFILENAME
                         Use this csv-filename to store lookahead-analysis-
-                        results
-
-Common arguments:
+                        results</p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-
-Strategy arguments:
+                        Path to userdata directory.</p>
+<p>Strategy arguments:
   -s NAME, --strategy NAME
                         Specify strategy class name which will be used by the
                         bot.
@@ -1837,8 +1835,8 @@ Strategy arguments:
                         folder.
   --freqaimodel NAME    Specify a custom freqaimodels.
   --freqaimodel-path PATH
-                        Specify additional lookup path for freqaimodels.
-</code></pre></div>
+                        Specify additional lookup path for freqaimodels.</p>
+<p>```</p>
 <div class="admonition note">
 <p>The above Output was reduced to options <code>lookahead-analysis</code> adds on top of regular backtesting commands.</p>
 </div>

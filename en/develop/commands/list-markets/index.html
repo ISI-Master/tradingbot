@@ -1532,15 +1532,15 @@
 
   <h1>List markets</h1>
 
-<div class="highlight"><pre><span></span><code>usage: freqtrade list-markets [-h] [-v] [--no-color] [--logfile FILE] [-V]
+<p>```
+usage: freqtrade list-markets [-h] [-v] [--no-color] [--logfile FILE] [-V]
                               [-c PATH] [-d PATH] [--userdir PATH]
                               [--exchange EXCHANGE] [--print-list]
                               [--print-json] [-1] [--print-csv]
                               [--base BASE_CURRENCY [BASE_CURRENCY ...]]
                               [--quote QUOTE_CURRENCY [QUOTE_CURRENCY ...]]
-                              [-a] [--trading-mode {spot,margin,futures}]
-
-options:
+                              [-a] [--trading-mode {spot,margin,futures}]</p>
+<p>options:
   -h, --help            show this help message and exit
   --exchange EXCHANGE   Exchange name. Only valid if no config is provided.
   --print-list          Print list of pairs or market symbols. By default data
@@ -1555,27 +1555,26 @@ options:
   -a, --all             Print all pairs or market symbols. By default only
                         active ones are shown.
   --trading-mode {spot,margin,futures}, --tradingmode {spot,margin,futures}
-                        Select Trading mode
-
-Common arguments:
+                        Select Trading mode</p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-</code></pre></div>
+                        Path to userdata directory.</p>
+<p>```</p>
 
 
 

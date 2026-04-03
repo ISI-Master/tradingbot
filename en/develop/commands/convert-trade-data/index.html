@@ -1532,14 +1532,14 @@
 
   <h1>Convert trade data</h1>
 
-<div class="highlight"><pre><span></span><code>usage: freqtrade convert-trade-data [-h] [-v] [--no-color] [--logfile FILE]
+<p>```
+usage: freqtrade convert-trade-data [-h] [-v] [--no-color] [--logfile FILE]
                                     [-V] [-c PATH] [-d PATH] [--userdir PATH]
                                     [-p PAIRS [PAIRS ...]] --format-from
                                     {json,jsongz,feather,parquet,kraken_csv}
                                     --format-to {json,jsongz,feather,parquet}
-                                    [--erase] [--exchange EXCHANGE]
-
-options:
+                                    [--erase] [--exchange EXCHANGE]</p>
+<p>options:
   -h, --help            show this help message and exit
   -p PAIRS [PAIRS ...], --pairs PAIRS [PAIRS ...]
                         Limit command to these pairs. Pairs are space-
@@ -1550,27 +1550,26 @@ options:
                         Destination format for data conversion.
   --erase               Clean all existing data for the selected
                         exchange/pairs/timeframes.
-  --exchange EXCHANGE   Exchange name. Only valid if no config is provided.
-
-Common arguments:
+  --exchange EXCHANGE   Exchange name. Only valid if no config is provided.</p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-</code></pre></div>
+                        Path to userdata directory.</p>
+<p>```</p>
 
 
 

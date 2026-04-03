@@ -1549,6 +1549,51 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#flake8-noqa-f401" class="md-nav__link">
+    <span class="md-ellipsis">
+      flake8: noqa: F401
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#isort-skip_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      isort: skip_file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-do-not-remove-these-imports-" class="md-nav__link">
+    <span class="md-ellipsis">
+      --- Do not remove these imports ---
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      --------------------------------
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-your-lib-to-import-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add your lib to import here
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1568,49 +1613,46 @@
   
 
 
-  <h1>Strategy imports</h1>
-
 <h2 id="imports-necessary-for-a-strategy">Imports necessary for a strategy<a class="headerlink" href="#imports-necessary-for-a-strategy" title="Permanent link">&para;</a></h2>
 <p>When creating a strategy, you will need to import the necessary modules and classes. The following imports are required for a strategy:</p>
 <p>By default, we recommend the following imports as a base line for your strategy:
 This will cover all imports necessary for freqtrade functions to work.
 Obviously you can add more imports as needed for your strategy.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># flake8: noqa: F401</span>
-<span class="c1"># isort: skip_file</span>
-<span class="c1"># --- Do not remove these imports ---</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">timezone</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
-    <span class="n">IStrategy</span><span class="p">,</span>
-    <span class="n">Trade</span><span class="p">,</span> 
-    <span class="n">Order</span><span class="p">,</span>
-    <span class="n">PairLocks</span><span class="p">,</span>
-    <span class="n">informative</span><span class="p">,</span>  <span class="c1"># @informative decorator</span>
-    <span class="c1"># Hyperopt Parameters</span>
-    <span class="n">BooleanParameter</span><span class="p">,</span>
-    <span class="n">CategoricalParameter</span><span class="p">,</span>
-    <span class="n">DecimalParameter</span><span class="p">,</span>
-    <span class="n">IntParameter</span><span class="p">,</span>
-    <span class="n">RealParameter</span><span class="p">,</span>
-    <span class="c1"># timeframe helpers</span>
-    <span class="n">timeframe_to_minutes</span><span class="p">,</span>
-    <span class="n">timeframe_to_next_date</span><span class="p">,</span>
-    <span class="n">timeframe_to_prev_date</span><span class="p">,</span>
-    <span class="c1"># Strategy helper functions</span>
-    <span class="n">merge_informative_pair</span><span class="p">,</span>
-    <span class="n">stoploss_from_absolute</span><span class="p">,</span>
-    <span class="n">stoploss_from_open</span><span class="p">,</span>
-<span class="p">)</span>
-
-<span class="c1"># --------------------------------</span>
-<span class="c1"># Add your lib to import here</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">talib.abstract</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ta</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">technical</span><span class="w"> </span><span class="kn">import</span> <span class="n">qtpylib</span>
-</code></pre></div>
+<p>``` python</p>
+<h1 id="flake8-noqa-f401">flake8: noqa: F401<a class="headerlink" href="#flake8-noqa-f401" title="Permanent link">&para;</a></h1>
+<h1 id="isort-skip_file">isort: skip_file<a class="headerlink" href="#isort-skip_file" title="Permanent link">&para;</a></h1>
+<h1 id="-do-not-remove-these-imports-">--- Do not remove these imports ---<a class="headerlink" href="#-do-not-remove-these-imports-" title="Permanent link">&para;</a></h1>
+<p>import numpy as np
+import pandas as pd
+from datetime import datetime, timedelta, timezone
+from pandas import DataFrame
+from typing import Dict, Optional, Union, Tuple</p>
+<p>from freqtrade.strategy import (
+    IStrategy,
+    Trade, 
+    Order,
+    PairLocks,
+    informative,  # @informative decorator
+    # Hyperopt Parameters
+    BooleanParameter,
+    CategoricalParameter,
+    DecimalParameter,
+    IntParameter,
+    RealParameter,
+    # timeframe helpers
+    timeframe_to_minutes,
+    timeframe_to_next_date,
+    timeframe_to_prev_date,
+    # Strategy helper functions
+    merge_informative_pair,
+    stoploss_from_absolute,
+    stoploss_from_open,
+)</p>
+<h1 id="-">--------------------------------<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<h1 id="add-your-lib-to-import-here">Add your lib to import here<a class="headerlink" href="#add-your-lib-to-import-here" title="Permanent link">&para;</a></h1>
+<p>import talib.abstract as ta
+from technical import qtpylib
+```</p>
 
 
 

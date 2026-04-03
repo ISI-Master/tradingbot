@@ -1578,17 +1578,32 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deactivate-venv-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deactivate venv and run
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deactivate venv and run">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#plain-native-installation" class="md-nav__link">
     <span class="md-ellipsis">
       Plain native installation
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1616,8 +1631,6 @@
   
 
 
-  <h1>Release template</h1>
-
 <h2 id="highlighted-changes">Highlighted changes<a class="headerlink" href="#highlighted-changes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>...</li>
@@ -1625,22 +1638,23 @@
 <h3 id="how-to-update">How to update<a class="headerlink" href="#how-to-update" title="Permanent link">&para;</a></h3>
 <p>As always, you can update your bot using one of the following commands:</p>
 <h4 id="docker-compose">docker-compose<a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>pull
-docker-compose<span class="w"> </span>up<span class="w"> </span>-d
-</code></pre></div>
+<p><code>bash
+docker-compose pull
+docker-compose up -d</code></p>
 <h4 id="installation-via-setup-script">Installation via setup script<a class="headerlink" href="#installation-via-setup-script" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code># Deactivate venv and run 
-./setup.sh --update
-</code></pre></div>
+<p>```</p>
+<h1 id="deactivate-venv-and-run">Deactivate venv and run<a class="headerlink" href="#deactivate-venv-and-run" title="Permanent link">&para;</a></h1>
+<p>./setup.sh --update
+```</p>
 <h4 id="plain-native-installation">Plain native installation<a class="headerlink" href="#plain-native-installation" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git pull
-pip install -U -r requirements.txt
-</code></pre></div>
+<p><code>git pull
+pip install -U -r requirements.txt</code></p>
 <details>
 <summary>Expand full changelog</summary>
 
-<div class="highlight"><pre><span></span><code>&lt;Paste your changelog here&gt;
-</code></pre></div>
+```
+<Paste your changelog here>
+```
 
 </details>
 

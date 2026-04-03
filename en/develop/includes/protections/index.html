@@ -1715,20 +1715,20 @@ If <code>trade_limit</code> or more trades resulted in stoploss, trading will st
 <p>Similarly, this protection will by default look at all trades (long and short). For futures bots, setting <code>only_per_side</code> will make the bot only consider one side, and will then only lock this one side, allowing for example shorts to continue after a series of long stoplosses.</p>
 <p><code>required_profit</code> will determine the required relative profit (or loss) for stoplosses to consider. This should normally not be set and defaults to 0.0 - which means all losing stoplosses will be triggering a block.</p>
 <p>The below example stops trading for all pairs for 4 candles after the last trade if the bot hit stoploss 4 times within the last 24 candles.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@property</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;StoplossGuard&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
-            <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-            <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-            <span class="s2">&quot;required_profit&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-            <span class="s2">&quot;only_per_pair&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="s2">&quot;only_per_side&quot;</span><span class="p">:</span> <span class="kc">False</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-</code></pre></div>
+<p><code>python
+@property
+def protections(self):
+    return [
+        {
+            "method": "StoplossGuard",
+            "lookback_period_candles": 24,
+            "trade_limit": 4,
+            "stop_duration_candles": 4,
+            "required_profit": 0.0,
+            "only_per_pair": False,
+            "only_per_side": False
+        }
+    ]</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>StoplossGuard</code> considers all trades with the results <code>"stop_loss"</code>, <code>"stoploss_on_exchange"</code> and <code>"trailing_stop_loss"</code> if the resulting profit was negative.
@@ -1737,48 +1737,48 @@ If <code>trade_limit</code> or more trades resulted in stoploss, trading will st
 <h4 id="maxdrawdown">MaxDrawdown<a class="headerlink" href="#maxdrawdown" title="Permanent link">&para;</a></h4>
 <p><code>MaxDrawdown</code> uses all trades within <code>lookback_period</code> in minutes (or in candles when using <code>lookback_period_candles</code>) to determine the maximum drawdown. If the drawdown is below <code>max_allowed_drawdown</code>, trading will stop for <code>stop_duration</code> in minutes (or in candles when using <code>stop_duration_candles</code>) after the last trade - assuming that the bot needs some time to let markets recover.</p>
 <p>The below sample stops trading for 12 candles if max-drawdown is &gt; 20% considering all pairs - with a minimum of <code>trade_limit</code> trades - within the last 48 candles. If desired, <code>lookback_period</code> and/or <code>stop_duration</code> can be used.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@property</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span>  <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;MaxDrawdown&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span>
-            <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-            <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-            <span class="s2">&quot;max_allowed_drawdown&quot;</span><span class="p">:</span> <span class="mf">0.2</span>
-        <span class="p">},</span>
-    <span class="p">]</span>
-</code></pre></div>
+<p><code>python
+@property
+def protections(self):
+    return  [
+        {
+            "method": "MaxDrawdown",
+            "lookback_period_candles": 48,
+            "trade_limit": 20,
+            "stop_duration_candles": 12,
+            "max_allowed_drawdown": 0.2
+        },
+    ]</code></p>
 <h4 id="low-profit-pairs">Low Profit Pairs<a class="headerlink" href="#low-profit-pairs" title="Permanent link">&para;</a></h4>
 <p><code>LowProfitPairs</code> uses all trades for a pair within <code>lookback_period</code> in minutes (or in candles when using <code>lookback_period_candles</code>) to determine the overall profit ratio.
 If that ratio is below <code>required_profit</code>, that pair will be locked for <code>stop_duration</code> in minutes (or in candles when using <code>stop_duration_candles</code>, or until the set time when using <code>unlock_at</code>).</p>
 <p>For futures bots, setting <code>only_per_side</code> will make the bot only consider one side, and will then only lock this one side, allowing for example shorts to continue after a series of long losses.</p>
 <p>The below example will stop trading a pair for 60 minutes if the pair does not have a required profit of 2% (and a minimum of 2 trades) within the last 6 candles.</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@property</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;LowProfitPairs&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-            <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="s2">&quot;stop_duration&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-            <span class="s2">&quot;required_profit&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span>
-            <span class="s2">&quot;only_per_pair&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-</code></pre></div>
+<p><code>python
+@property
+def protections(self):
+    return [
+        {
+            "method": "LowProfitPairs",
+            "lookback_period_candles": 6,
+            "trade_limit": 2,
+            "stop_duration": 60,
+            "required_profit": 0.02,
+            "only_per_pair": False,
+        }
+    ]</code></p>
 <h4 id="cooldown-period">Cooldown Period<a class="headerlink" href="#cooldown-period" title="Permanent link">&para;</a></h4>
 <p><code>CooldownPeriod</code> locks a pair for <code>stop_duration</code> in minutes (or in candles when using <code>stop_duration_candles</code>, or until the set time when using <code>unlock_at</code>) after exiting, avoiding a re-entry for this pair for <code>stop_duration</code> minutes.</p>
 <p>The below example will stop trading a pair for 2 candles after closing a trade, allowing this pair to "cool down".</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@property</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">return</span>  <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;CooldownPeriod&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">2</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-</code></pre></div>
+<p><code>python
+@property
+def protections(self):
+    return  [
+        {
+            "method": "CooldownPeriod",
+            "stop_duration_candles": 2
+        }
+    ]</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This Protection applies only at pair-level, and will never lock all pairs globally.
@@ -1795,49 +1795,50 @@ All protections are evaluated in the sequence they are defined.</p>
 <li>Locks all pairs that had 2 Trades within the last 6 hours (<code>6 * 1h candles</code>) with a combined profit ratio of below 0.02 (&lt;2%) (<code>LowProfitPairs</code>).</li>
 <li>Locks all pairs for 2 candles that had a profit of below 0.01 (&lt;1%) within the last 24h (<code>24 * 1h candles</code>), a minimum of 4 trades.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">freqtrade.strategy</span><span class="w"> </span><span class="kn">import</span> <span class="n">IStrategy</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">AwesomeStrategy</span><span class="p">(</span><span class="n">IStrategy</span><span class="p">)</span>
-    <span class="n">timeframe</span> <span class="o">=</span> <span class="s1">&#39;1h&#39;</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">protections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;CooldownPeriod&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">5</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;MaxDrawdown&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">48</span><span class="p">,</span>
-                <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
-                <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                <span class="s2">&quot;max_allowed_drawdown&quot;</span><span class="p">:</span> <span class="mf">0.2</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;StoplossGuard&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
-                <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="s2">&quot;only_per_pair&quot;</span><span class="p">:</span> <span class="kc">False</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;LowProfitPairs&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
-                <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
-                <span class="s2">&quot;required_profit&quot;</span><span class="p">:</span> <span class="mf">0.02</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;LowProfitPairs&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;lookback_period_candles&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span>
-                <span class="s2">&quot;trade_limit&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-                <span class="s2">&quot;stop_duration_candles&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-                <span class="s2">&quot;required_profit&quot;</span><span class="p">:</span> <span class="mf">0.01</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="c1"># ...</span>
+<p>``` python
+from freqtrade.strategy import IStrategy</p>
+<p>class AwesomeStrategy(IStrategy)
+    timeframe = '1h'</p>
+<div class="codehilite"><pre><span></span><code>@property
+def protections(self):
+    return [
+        {
+            &quot;method&quot;: &quot;CooldownPeriod&quot;,
+            &quot;stop_duration_candles&quot;: 5
+        },
+        {
+            &quot;method&quot;: &quot;MaxDrawdown&quot;,
+            &quot;lookback_period_candles&quot;: 48,
+            &quot;trade_limit&quot;: 20,
+            &quot;stop_duration_candles&quot;: 4,
+            &quot;max_allowed_drawdown&quot;: 0.2
+        },
+        {
+            &quot;method&quot;: &quot;StoplossGuard&quot;,
+            &quot;lookback_period_candles&quot;: 24,
+            &quot;trade_limit&quot;: 4,
+            &quot;stop_duration_candles&quot;: 2,
+            &quot;only_per_pair&quot;: False
+        },
+        {
+            &quot;method&quot;: &quot;LowProfitPairs&quot;,
+            &quot;lookback_period_candles&quot;: 6,
+            &quot;trade_limit&quot;: 2,
+            &quot;stop_duration_candles&quot;: 60,
+            &quot;required_profit&quot;: 0.02
+        },
+        {
+            &quot;method&quot;: &quot;LowProfitPairs&quot;,
+            &quot;lookback_period_candles&quot;: 24,
+            &quot;trade_limit&quot;: 4,
+            &quot;stop_duration_candles&quot;: 2,
+            &quot;required_profit&quot;: 0.01
+        }
+    ]
+# ...
 </code></pre></div>
+
+<p>```</p>
 
 
 

@@ -1532,7 +1532,8 @@
 
   <h1>Edge</h1>
 
-<div class="highlight"><pre><span></span><code>usage: freqtrade edge [-h] [-v] [--no-color] [--logfile FILE] [-V] [-c PATH]
+<p>```
+usage: freqtrade edge [-h] [-v] [--no-color] [--logfile FILE] [-V] [-c PATH]
                       [-d PATH] [--userdir PATH] [-s NAME]
                       [--strategy-path PATH] [--recursive-strategy-search]
                       [--freqaimodel NAME] [--freqaimodel-path PATH]
@@ -1540,22 +1541,21 @@
                       [--data-format-ohlcv {json,jsongz,feather,parquet}]
                       [--max-open-trades INT] [--stake-amount STAKE_AMOUNT]
                       [--fee FLOAT] [-p PAIRS [PAIRS ...]]
-                      [--stoplosses STOPLOSS_RANGE]
-
-options:
+                      [--stoplosses STOPLOSS_RANGE]</p>
+<p>options:
   -h, --help            show this help message and exit
   -i TIMEFRAME, --timeframe TIMEFRAME
-                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
+                        Specify timeframe (<code>1m</code>, <code>5m</code>, <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
   --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
-                        (default: `feather`).
+                        (default: <code>feather</code>).
   --max-open-trades INT
-                        Override the value of the `max_open_trades`
+                        Override the value of the <code>max_open_trades</code>
                         configuration setting.
   --stake-amount STAKE_AMOUNT
-                        Override the value of the `stake_amount` configuration
+                        Override the value of the <code>stake_amount</code> configuration
                         setting.
   --fee FLOAT           Specify fee ratio. Will be applied twice (on trade
                         entry and exit).
@@ -1564,30 +1564,28 @@ options:
                         separated.
   --stoplosses STOPLOSS_RANGE
                         Defines a range of stoploss values against which edge
-                        will assess the strategy. The format is &quot;min,max,step&quot;
+                        will assess the strategy. The format is "min,max,step"
                         (without any space). Example:
-                        `--stoplosses=-0.01,-0.1,-0.001`
-
-Common arguments:
+                        <code>--stoplosses=-0.01,-0.1,-0.001</code></p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-
-Strategy arguments:
+                        Path to userdata directory.</p>
+<p>Strategy arguments:
   -s NAME, --strategy NAME
                         Specify strategy class name which will be used by the
                         bot.
@@ -1597,8 +1595,8 @@ Strategy arguments:
                         folder.
   --freqaimodel NAME    Specify a custom freqaimodels.
   --freqaimodel-path PATH
-                        Specify additional lookup path for freqaimodels.
-</code></pre></div>
+                        Specify additional lookup path for freqaimodels.</p>
+<p>```</p>
 
 
 

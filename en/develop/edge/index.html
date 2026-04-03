@@ -2054,12 +2054,10 @@ We calculate the risk reward ratio as follows:<br>
 <li>Stoploss</li>
 </ul>
 <p>Allowed capital at risk is calculated as follows:</p>
-<div class="highlight"><pre><span></span><code>Allowed capital at risk = (Capital available_percentage) X (Allowed risk per trade)
-</code></pre></div>
+<p><code>Allowed capital at risk = (Capital available_percentage) X (Allowed risk per trade)</code></p>
 <p>Stoploss is calculated as described above with respect to historical data.</p>
 <p>The position size is calculated as follows:</p>
-<div class="highlight"><pre><span></span><code>Position size = (Allowed capital at risk) / Stoploss
-</code></pre></div>
+<p><code>Position size = (Allowed capital at risk) / Stoploss</code></p>
 <p>Example:</p>
 <p>Let's say the stake currency is <strong>ETH</strong> and there is <span class="arithmatex">\(10\)</span> <strong>ETH</strong> on the wallet. The capital available percentage is <span class="arithmatex">\(50%\)</span> and the allowed risk per trade is <span class="arithmatex">\(1\%\)</span>. Thus, the available capital for trading is <span class="arithmatex">\(10 * 0.5 = 5\)</span> <strong>ETH</strong> and the allowed capital at risk would be <span class="arithmatex">\(5 * 0.01 = 0.05\)</span> <strong>ETH</strong>.</p>
 <ul>
@@ -2086,7 +2084,8 @@ We calculate the risk reward ratio as follows:<br>
 <li><strong>Trade 4</strong> The strategy detects a new buy signal int the <strong>XLM/ETH</strong> market. <code>Edge Positioning</code> calculates the stoploss of <span class="arithmatex">\(2\%\)</span>, and the position size of <span class="arithmatex">\(0.055 / 0.02 = 2.75\)</span> <strong>ETH</strong>.</li>
 </ul>
 <h2 id="edge-command-reference">Edge command reference<a class="headerlink" href="#edge-command-reference" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>usage: freqtrade edge [-h] [-v] [--no-color] [--logfile FILE] [-V] [-c PATH]
+<p>```
+usage: freqtrade edge [-h] [-v] [--no-color] [--logfile FILE] [-V] [-c PATH]
                       [-d PATH] [--userdir PATH] [-s NAME]
                       [--strategy-path PATH] [--recursive-strategy-search]
                       [--freqaimodel NAME] [--freqaimodel-path PATH]
@@ -2094,22 +2093,21 @@ We calculate the risk reward ratio as follows:<br>
                       [--data-format-ohlcv {json,jsongz,feather,parquet}]
                       [--max-open-trades INT] [--stake-amount STAKE_AMOUNT]
                       [--fee FLOAT] [-p PAIRS [PAIRS ...]]
-                      [--stoplosses STOPLOSS_RANGE]
-
-options:
+                      [--stoplosses STOPLOSS_RANGE]</p>
+<p>options:
   -h, --help            show this help message and exit
   -i TIMEFRAME, --timeframe TIMEFRAME
-                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
+                        Specify timeframe (<code>1m</code>, <code>5m</code>, <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
   --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
-                        (default: `feather`).
+                        (default: <code>feather</code>).
   --max-open-trades INT
-                        Override the value of the `max_open_trades`
+                        Override the value of the <code>max_open_trades</code>
                         configuration setting.
   --stake-amount STAKE_AMOUNT
-                        Override the value of the `stake_amount` configuration
+                        Override the value of the <code>stake_amount</code> configuration
                         setting.
   --fee FLOAT           Specify fee ratio. Will be applied twice (on trade
                         entry and exit).
@@ -2118,30 +2116,28 @@ options:
                         separated.
   --stoplosses STOPLOSS_RANGE
                         Defines a range of stoploss values against which edge
-                        will assess the strategy. The format is &quot;min,max,step&quot;
+                        will assess the strategy. The format is "min,max,step"
                         (without any space). Example:
-                        `--stoplosses=-0.01,-0.1,-0.001`
-
-Common arguments:
+                        <code>--stoplosses=-0.01,-0.1,-0.001</code></p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-
-Strategy arguments:
+                        Path to userdata directory.</p>
+<p>Strategy arguments:
   -s NAME, --strategy NAME
                         Specify strategy class name which will be used by the
                         bot.
@@ -2151,8 +2147,8 @@ Strategy arguments:
                         folder.
   --freqaimodel NAME    Specify a custom freqaimodels.
   --freqaimodel-path PATH
-                        Specify additional lookup path for freqaimodels.
-</code></pre></div>
+                        Specify additional lookup path for freqaimodels.</p>
+<p>```</p>
 <h2 id="configurations">Configurations<a class="headerlink" href="#configurations" title="Permanent link">&para;</a></h2>
 <p>Edge module has following configuration options:</p>
 <table>
@@ -2215,8 +2211,8 @@ Strategy arguments:
 </table>
 <h2 id="running-edge-independently">Running Edge independently<a class="headerlink" href="#running-edge-independently" title="Permanent link">&para;</a></h2>
 <p>You can run Edge independently in order to see in details the result. Here is an example:</p>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>edge
-</code></pre></div>
+<p><code>bash
+freqtrade edge</code></p>
 <p>An example of its output:</p>
 <table>
 <thead>
@@ -2391,11 +2387,11 @@ Strategy arguments:
 <p>Edge requires historic data the same way as backtesting does.
 Please refer to the <a href="../data-download/">Data Downloading</a> section of the documentation for details.</p>
 <h3 id="precising-stoploss-range">Precising stoploss range<a class="headerlink" href="#precising-stoploss-range" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>edge<span class="w"> </span>--stoplosses<span class="o">=</span>-0.01,-0.1,-0.001<span class="w"> </span><span class="c1">#min,max,step</span>
-</code></pre></div>
+<p><code>bash
+freqtrade edge --stoplosses=-0.01,-0.1,-0.001 #min,max,step</code></p>
 <h3 id="advanced-use-of-timerange">Advanced use of timerange<a class="headerlink" href="#advanced-use-of-timerange" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>freqtrade<span class="w"> </span>edge<span class="w"> </span>--timerange<span class="o">=</span><span class="m">20181110</span>-20181113
-</code></pre></div>
+<p><code>bash
+freqtrade edge --timerange=20181110-20181113</code></p>
 <p>Doing <code>--timerange=-20190901</code> will get all available data until September 1<sup>st</sup> (excluding September 1<sup>st</sup> 2019).</p>
 <p>The full timerange specification:</p>
 <ul>

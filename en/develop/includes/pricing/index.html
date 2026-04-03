@@ -1693,7 +1693,8 @@ Prices are always retrieved right before an order is placed, either by querying 
 <h4 id="enter-price-side">Enter price side<a class="headerlink" href="#enter-price-side" title="Permanent link">&para;</a></h4>
 <p>The configuration setting <code>entry_pricing.price_side</code> defines the side of the orderbook the bot looks for when buying.</p>
 <p>The following displays an orderbook.</p>
-<div class="highlight"><pre><span></span><code>...
+<p><code>explanation
+...
 103
 102
 101  # ask
@@ -1701,8 +1702,7 @@ Prices are always retrieved right before an order is placed, either by querying 
 99   # bid
 98
 97
-...
-</code></pre></div>
+...</code></p>
 <p>If <code>entry_pricing.price_side</code> is set to <code>"bid"</code>, then the bot will use 99 as entry price.<br />
 In line with that, if <code>entry_pricing.price_side</code> is set to <code>"ask"</code>, then the bot will use 101 as entry price.</p>
 <p>Depending on the order direction (<em>long</em>/<em>short</em>), this will lead to different results. Therefore we recommend to use <code>"same"</code> or <code>"other"</code> for this configuration instead.
@@ -1796,7 +1796,8 @@ Also, prices at the "other" side of the spread are higher than prices at the "bi
 <h4 id="exit-price-side">Exit price side<a class="headerlink" href="#exit-price-side" title="Permanent link">&para;</a></h4>
 <p>The configuration setting <code>exit_pricing.price_side</code> defines the side of the spread the bot looks for when exiting a trade.</p>
 <p>The following displays an orderbook:</p>
-<div class="highlight"><pre><span></span><code>...
+<p><code>explanation
+...
 103
 102
 101  # ask
@@ -1804,8 +1805,7 @@ Also, prices at the "other" side of the spread are higher than prices at the "bi
 99   # bid
 98
 97
-...
-</code></pre></div>
+...</code></p>
 <p>If <code>exit_pricing.price_side</code> is set to <code>"ask"</code>, then the bot will use 101 as exiting price.<br />
 In line with that, if <code>exit_pricing.price_side</code> is set to <code>"bid"</code>, then the bot will use 99 as exiting price.</p>
 <p>Depending on the order direction (<em>long</em>/<em>short</em>), this will lead to different results. Therefore we recommend to use <code>"same"</code> or <code>"other"</code> for this configuration instead.
@@ -1889,20 +1889,20 @@ This would result in the following pricing matrix:</p>
 <h3 id="market-order-pricing">Market order pricing<a class="headerlink" href="#market-order-pricing" title="Permanent link">&para;</a></h3>
 <p>When using market orders, prices should be configured to use the "correct" side of the orderbook to allow realistic pricing detection.
 Assuming both entry and exits are using market orders, a configuration similar to the following must be used</p>
-<div class="highlight"><pre><span></span><code>  &quot;order_types&quot;: {
-    &quot;entry&quot;: &quot;market&quot;,
-    &quot;exit&quot;: &quot;market&quot;
+<p><code>jsonc
+  "order_types": {
+    "entry": "market",
+    "exit": "market"
     // ...
   },
-  &quot;entry_pricing&quot;: {
-    &quot;price_side&quot;: &quot;other&quot;,
+  "entry_pricing": {
+    "price_side": "other",
     // ...
   },
-  &quot;exit_pricing&quot;:{
-    &quot;price_side&quot;: &quot;other&quot;,
+  "exit_pricing":{
+    "price_side": "other",
     // ...
-  },
-</code></pre></div>
+  },</code></p>
 <p>Obviously, if only one side is using limit orders, different pricing combinations can be used.</p>
 
 

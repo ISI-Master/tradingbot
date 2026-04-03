@@ -1532,7 +1532,8 @@
 
   <h1>Plot dataframe</h1>
 
-<div class="highlight"><pre><span></span><code>usage: freqtrade plot-dataframe [-h] [-v] [--no-color] [--logfile FILE] [-V]
+<p>```
+usage: freqtrade plot-dataframe [-h] [-v] [--no-color] [--logfile FILE] [-V]
                                 [-c PATH] [-d PATH] [--userdir PATH] [-s NAME]
                                 [--strategy-path PATH]
                                 [--recursive-strategy-search]
@@ -1545,9 +1546,8 @@
                                 [--export {none,trades,signals}]
                                 [--export-filename PATH]
                                 [--timerange TIMERANGE] [-i TIMEFRAME]
-                                [--no-trades]
-
-options:
+                                [--no-trades]</p>
+<p>options:
   -h, --help            show this help message and exit
   -p PAIRS [PAIRS ...], --pairs PAIRS [PAIRS ...]
                         Limit command to these pairs. Pairs are space-
@@ -1555,16 +1555,16 @@ options:
   --indicators1 INDICATORS1 [INDICATORS1 ...]
                         Set indicators from your strategy you want in the
                         first row of the graph. Space-separated list. Example:
-                        `ema3 ema5`. Default: `[&#39;sma&#39;, &#39;ema3&#39;, &#39;ema5&#39;]`.
+                        <code>ema3 ema5</code>. Default: <code>['sma', 'ema3', 'ema5']</code>.
   --indicators2 INDICATORS2 [INDICATORS2 ...]
                         Set indicators from your strategy you want in the
                         third row of the graph. Space-separated list. Example:
-                        `fastd fastk`. Default: `[&#39;macd&#39;, &#39;macdsignal&#39;]`.
+                        <code>fastd fastk</code>. Default: <code>['macd', 'macdsignal']</code>.
   --plot-limit INT      Specify tick limit for plotting. Notice: too high
                         values cause huge files. Default: 750.
   --db-url PATH         Override trades database URL, this is useful in custom
-                        deployments (default: `sqlite:///tradesv3.sqlite` for
-                        Live Run mode, `sqlite:///tradesv3.dryrun.sqlite` for
+                        deployments (default: <code>sqlite:///tradesv3.sqlite</code> for
+                        Live Run mode, <code>sqlite:///tradesv3.dryrun.sqlite</code> for
                         Dry Run).
   --trade-source {DB,file}
                         Specify the source for trades (Can be DB or file
@@ -1573,34 +1573,32 @@ options:
                         Export backtest results (default: trades).
   --export-filename PATH, --backtest-filename PATH
                         Use this filename for backtest results.Requires
-                        `--export` to be set as well. Example: `--export-filen
-                        ame=user_data/backtest_results/backtest_today.json`
+                        <code>--export</code> to be set as well. Example: <code>--export-filen
+                        ame=user_data/backtest_results/backtest_today.json</code>
   --timerange TIMERANGE
                         Specify what timerange of data to use.
   -i TIMEFRAME, --timeframe TIMEFRAME
-                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
-  --no-trades           Skip using trades from backtesting file and DB.
-
-Common arguments:
+                        Specify timeframe (<code>1m</code>, <code>5m</code>, <code>30m</code>, <code>1h</code>, <code>1d</code>).
+  --no-trades           Skip using trades from backtesting file and DB.</p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-
-Strategy arguments:
+                        Path to userdata directory.</p>
+<p>Strategy arguments:
   -s NAME, --strategy NAME
                         Specify strategy class name which will be used by the
                         bot.
@@ -1610,8 +1608,8 @@ Strategy arguments:
                         folder.
   --freqaimodel NAME    Specify a custom freqaimodels.
   --freqaimodel-path PATH
-                        Specify additional lookup path for freqaimodels.
-</code></pre></div>
+                        Specify additional lookup path for freqaimodels.</p>
+<p>```</p>
 
 
 

@@ -1532,7 +1532,8 @@
 
   <h1>Recursive analysis</h1>
 
-<div class="highlight"><pre><span></span><code>usage: freqtrade recursive-analysis [-h] [-v] [--no-color] [--logfile FILE]
+<p>```
+usage: freqtrade recursive-analysis [-h] [-v] [--no-color] [--logfile FILE]
                                     [-V] [-c PATH] [-d PATH] [--userdir PATH]
                                     [-s NAME] [--strategy-path PATH]
                                     [--recursive-strategy-search]
@@ -1541,44 +1542,41 @@
                                     [--timerange TIMERANGE]
                                     [--data-format-ohlcv {json,jsongz,feather,parquet}]
                                     [-p PAIRS [PAIRS ...]]
-                                    [--startup-candle STARTUP_CANDLE [STARTUP_CANDLE ...]]
-
-options:
+                                    [--startup-candle STARTUP_CANDLE [STARTUP_CANDLE ...]]</p>
+<p>options:
   -h, --help            show this help message and exit
   -i TIMEFRAME, --timeframe TIMEFRAME
-                        Specify timeframe (`1m`, `5m`, `30m`, `1h`, `1d`).
+                        Specify timeframe (<code>1m</code>, <code>5m</code>, <code>30m</code>, <code>1h</code>, <code>1d</code>).
   --timerange TIMERANGE
                         Specify what timerange of data to use.
   --data-format-ohlcv {json,jsongz,feather,parquet}
                         Storage format for downloaded candle (OHLCV) data.
-                        (default: `feather`).
+                        (default: <code>feather</code>).
   -p PAIRS [PAIRS ...], --pairs PAIRS [PAIRS ...]
                         Limit command to these pairs. Pairs are space-
                         separated.
   --startup-candle STARTUP_CANDLE [STARTUP_CANDLE ...]
-                        Specify startup candles to be checked (`199`, `499`,
-                        `999`, `1999`).
-
-Common arguments:
+                        Specify startup candles to be checked (<code>199</code>, <code>499</code>,
+                        <code>999</code>, <code>1999</code>).</p>
+<p>Common arguments:
   -v, --verbose         Verbose mode (-vv for more, -vvv to get all messages).
   --no-color            Disable colorization of hyperopt results. May be
                         useful if you are redirecting output to a file.
   --logfile FILE, --log-file FILE
                         Log to the file specified. Special values are:
-                        &#39;syslog&#39;, &#39;journald&#39;. See the documentation for more
+                        'syslog', 'journald'. See the documentation for more
                         details.
-  -V, --version         show program&#39;s version number and exit
+  -V, --version         show program's version number and exit
   -c PATH, --config PATH
                         Specify configuration file (default:
-                        `userdir/config.json` or `config.json` whichever
+                        <code>userdir/config.json</code> or <code>config.json</code> whichever
                         exists). Multiple --config options may be used. Can be
-                        set to `-` to read config from stdin.
+                        set to <code>-</code> to read config from stdin.
   -d PATH, --datadir PATH, --data-dir PATH
                         Path to directory with historical backtesting data.
   --userdir PATH, --user-data-dir PATH
-                        Path to userdata directory.
-
-Strategy arguments:
+                        Path to userdata directory.</p>
+<p>Strategy arguments:
   -s NAME, --strategy NAME
                         Specify strategy class name which will be used by the
                         bot.
@@ -1588,8 +1586,8 @@ Strategy arguments:
                         folder.
   --freqaimodel NAME    Specify a custom freqaimodels.
   --freqaimodel-path PATH
-                        Specify additional lookup path for freqaimodels.
-</code></pre></div>
+                        Specify additional lookup path for freqaimodels.</p>
+<p>```</p>
 
 
 
