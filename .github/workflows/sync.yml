@@ -1,9 +1,10 @@
 name: Sync to GitLab
 on:
   push:
-    branches: [main]
+    branches:
+      - develop
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 2 * * *'
   workflow_dispatch:
 jobs:
   sync:
@@ -11,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           submodules: false
       - name: Push to GitLab
         env:
@@ -20,4 +21,4 @@ jobs:
           ENCODED_TOKEN=$(python3 -c 'import urllib.parse,os; print(urllib.parse.quote(os.environ["GITLAB_TOKEN"], safe=""))')
           git remote add gitlab "https://oauth2:${ENCODED_TOKEN}@git.bit-group.co/bit-group/freqtrade/freqtrade-server.git"
           git config http.postBuffer 524288000
-          git push gitlab main --force
+          git push gitlab develop:main --force
